@@ -272,10 +272,33 @@ function copyScripts() {
 
 // Copy images
 function copyImages() {
-  const imagesDir = './public/images';
-  if (fs.existsSync(imagesDir)) {
-    // Images directory is already in public, no need to copy
-    return;
+  const staticImagesDir = './static/images';
+  const publicImagesDir = './public/images';
+
+  // Copy images from static/images to public/images if static folder exists
+  if (fs.existsSync(staticImagesDir)) {
+    // Recursive copy function
+    function copyRecursive(src, dest) {
+      if (!fs.existsSync(dest)) {
+        fs.mkdirSync(dest, { recursive: true });
+      }
+
+      const entries = fs.readdirSync(src, { withFileTypes: true });
+
+      for (const entry of entries) {
+        const srcPath = path.join(src, entry.name);
+        const destPath = path.join(dest, entry.name);
+
+        if (entry.isDirectory()) {
+          copyRecursive(srcPath, destPath);
+        } else {
+          fs.copyFileSync(srcPath, destPath);
+        }
+      }
+    }
+
+    copyRecursive(staticImagesDir, publicImagesDir);
+    console.log('✓ Copied images');
   }
 }
 
