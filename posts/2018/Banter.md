@@ -57,6 +57,4 @@ We animated user interactions to bring the experience together and create a visi
 
 ![Landing Page Concepts](/images/2018/Banter/Untitled%208.png)
 
-Landing Page Launch
-
 ![](/images/2018/Banter/Untitled%2010.png)

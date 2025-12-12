@@ -33,7 +33,12 @@ function getAllPosts() {
         const content = fs.readFileSync(path.join(yearDir, filename), 'utf8');
         const { data, content: markdown } = matter(content);
         const html = marked(markdown);
-        const slug = filename.replace('.md', '');
+        // Sanitize slug: remove .md extension and replace invalid characters
+        const slug = filename
+          .replace('.md', '')
+          .replace(/[?#]/g, '')  // Remove ? and # characters
+          .replace(/\s+/g, '-')  // Replace spaces with hyphens
+          .replace(/[^\w-]/g, ''); // Remove other special characters except hyphens
 
         allPosts.push({
           slug,
