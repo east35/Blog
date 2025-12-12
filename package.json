@@ -1,0 +1,19 @@
+{
+  "name": "personal-site",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node src/build.js",
+    "watch": "node src/watch.js",
+    "dev": "node src/build.js && npx serve public",
+    "optimize-images": "node src/optimize-images.js"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^11.1.1"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1",
+    "sharp": "^0.34.5"
+  }
+}
