@@ -7,7 +7,8 @@ const maxWidth = 1200; // Max width for blog images
 const quality = 85; // JPEG quality
 
 async function optimizeImage(filePath) {
-  const ext = path.extname(filePath).toLowerCase();
+  const originalExt = path.extname(filePath);
+  const ext = originalExt.toLowerCase();
 
   // Skip SVG files
   if (ext === '.svg') return;
@@ -32,7 +33,9 @@ async function optimizeImage(filePath) {
       return;
     }
 
-    const outputPath = filePath.replace(ext, `-optimized${ext}`);
+    // Use original extension case for replacement to avoid file name conflicts
+    const basePath = filePath.slice(0, -originalExt.length);
+    const outputPath = `${basePath}-optimized${originalExt}`;
 
     // Calculate resize dimensions while preserving aspect ratio
     let resizeOptions = {

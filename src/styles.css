@@ -360,6 +360,12 @@ nav a:hover {
   overflow: hidden;
 }
 
+/* YouTube and Vimeo embeds use 16:9 aspect ratio */
+.embed-youtube,
+.embed-vimeo {
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
 /* Figma embeds typically need more height */
 .embed-figma {
   padding-bottom: 75%; /* 4:3 aspect ratio for better Figma viewing */

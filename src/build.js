@@ -94,7 +94,7 @@ function layout(title, content, currentPage = 'home', includeHeader = true) {
   <div class="clouds-section"></div>
   <footer>
     <div class="footer-content">
-      <p>&copy; ${new Date().getFullYear()} Jim Jordan</p>
+      <p>&copy; ${new Date().getFullYear()} <a href="/">Jim Jordan</a></p>
       <p class="footer-location">Made in Austin, <img width="18px" src="/images/texas.svg" alt="Texas" class="texas-icon" /></p>
       <p><a href="mailto:jimj512@icloud.com">Email Me</a></p>
     </div>
