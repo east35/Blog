@@ -5,8 +5,6 @@ description: Why I built a static site generator from scratch instead of using G
 category: Code Stuff
 ---
 
-# Building a Blog in 1,479 Lines of Code
-
 Modern web development has a complexity problem. Want to start a blog? You'll need React, webpack, babel, a CSS-in-JS library, a GraphQL layer, and about 300MB of node_modules before you write a single word.
 
 I wanted something different. Something that felt like the early web—when HTML was just HTML, CSS was just styling, and JavaScript was optional. Not out of nostalgia, but because most blogs don't need the complexity we've normalized.
