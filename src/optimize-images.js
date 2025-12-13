@@ -22,8 +22,12 @@ async function optimizeImage(filePath) {
     const image = sharp(filePath);
     const metadata = await image.metadata();
 
-    // Only optimize if image is larger than maxWidth
-    if (metadata.width <= maxWidth) {
+    // Only optimize if image is larger than maxWidth for landscape
+    // For portrait images, check height instead
+    const isPortrait = metadata.height > metadata.width;
+    const dimensionToCheck = isPortrait ? metadata.height : metadata.width;
+
+    if (dimensionToCheck <= maxWidth) {
       console.log(`⊘ Skipping ${path.basename(filePath)} (already optimized size)`);
       return;
     }
@@ -36,16 +40,29 @@ async function optimizeImage(filePath) {
       fit: 'inside'
     };
 
-    // Only resize if width is larger than maxWidth
-    if (metadata.width > maxWidth) {
+    // Resize based on orientation
+    if (isPortrait && metadata.height > maxWidth) {
+      resizeOptions.height = maxWidth;
+    } else if (!isPortrait && metadata.width > maxWidth) {
       resizeOptions.width = maxWidth;
     }
 
-    await image
+    // Build the processing pipeline
+    let pipeline = image
       .rotate() // Automatically rotate based on EXIF orientation
-      .resize(resizeOptions)
-      .jpeg({ quality, mozjpeg: true })
-      .toFile(outputPath);
+      .resize(resizeOptions);
+
+    // Use appropriate format based on original file
+    if (ext === '.png') {
+      pipeline = pipeline.png({ quality, compressionLevel: 9 });
+    } else if (ext === '.webp') {
+      pipeline = pipeline.webp({ quality });
+    } else {
+      // Default to JPEG for .jpg, .jpeg, .heic
+      pipeline = pipeline.jpeg({ quality, mozjpeg: true });
+    }
+
+    await pipeline.toFile(outputPath);
 
     const originalSize = fs.statSync(filePath).size;
     const optimizedSize = fs.statSync(outputPath).size;

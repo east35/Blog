@@ -102,6 +102,10 @@ function layout(title, content, currentPage = 'home', includeHeader = true) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=decode-width, initial-scale=1.0">
   <title>${title}</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/styles.css?v=${Date.now()}">
 </head>
 <body class="page-transition">${header}
@@ -312,6 +316,35 @@ function copyImages() {
   }
 }
 
+// Copy favicon files
+function copyFavicons() {
+  const faviconDir = './static/favicon_io';
+
+  if (fs.existsSync(faviconDir)) {
+    const faviconFiles = [
+      'favicon.ico',
+      'favicon-16x16.png',
+      'favicon-32x32.png',
+      'apple-touch-icon.png',
+      'android-chrome-192x192.png',
+      'android-chrome-512x512.png',
+      'site.webmanifest'
+    ];
+
+    faviconFiles.forEach(file => {
+      const srcPath = path.join(faviconDir, file);
+      const destPath = path.join(publicDir, file);
+
+      if (fs.existsSync(srcPath)) {
+        fs.copyFileSync(srcPath, destPath);
+        fs.chmodSync(destPath, 0o644);
+      }
+    });
+
+    console.log('✓ Copied favicons');
+  }
+}
+
 // Build everything
 console.log('Building site...');
 const posts = getAllPosts();
@@ -322,5 +355,6 @@ buildCVPage();
 copyStyles();
 copyScripts();
 copyImages();
+copyFavicons();
 console.log(`✓ Built ${posts.length} posts`);
 console.log('✓ Site built successfully');
