@@ -179,7 +179,8 @@ function renderMediaGrid(content) {
   const items = [];
 
   // Match markdown images
-  const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g;
+  // Support both standard syntax ![alt](/path) and angle bracket syntax ![alt](</path>)
+  const imageRegex = /!\[([^\]]*)\]\(<?([^>)]+)>?\)/g;
   let match;
   while ((match = imageRegex.exec(content)) !== null) {
     items.push({

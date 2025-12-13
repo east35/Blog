@@ -511,8 +511,6 @@ nav a:hover {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 60px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--border);
 }
 
 /* CV Page */

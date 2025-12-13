@@ -20,19 +20,19 @@ category: Case Study
 
 ### Dashboard Concept
 
-High level data feed for keyword campaigns across multiple retailers. 
+High level data feed for keyword campaigns across multiple retailers.
 
-    ![](/images/2020/searchnurture/SN - Nav - Opt. 3.2)
-    ![](/images/2020/searchnurture/SN - Nav - Opt. 3.2-1)
+![](</images/2020/searchnurture/SN - Nav - Opt. 3.2.png>)
+![](</images/2020/searchnurture/SN - Nav - Opt. 3.2-1.png>)
 
 [figma:https://www.figma.com/proto/RSQbtAxkXP0PiWTKGTQ2j4/Dashboard]
 
 ### Keyword Collections
 
-The main component sales agents work with are keywords. Agents create keywords and map them to positive and negative search results (eg searching "shampoo" in Amazon should tie to "Shampoo", "Women's Hair Products", "Aussie", etc.). Collections is a means to manage large groups of keywords that are mapped to specific client products. 
+The main component sales agents work with are keywords. Agents create keywords and map them to positive and negative search results (eg searching "shampoo" in Amazon should tie to "Shampoo", "Women's Hair Products", "Aussie", etc.). Collections is a means to manage large groups of keywords that are mapped to specific client products.
 
-    ![](/images/2020/searchnurture/collections1.png)
-    ![](/images/2020/searchnurture/collections2.png)
+![](/images/2020/searchnurture/collections1.png)
+![](/images/2020/searchnurture/collections2.png)
 
 [figma:https://www.figma.com/proto/XVc7wfOiKNzGRiRJ32ovCI/Collections]
 
