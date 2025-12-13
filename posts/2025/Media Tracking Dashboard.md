@@ -2,7 +2,7 @@
 title: Media Tracking Dashboard
 date: 2025-12-10
 description: Methods to tackle backlog guilt.
-category: Hardware Projects
+category: Code Stuff
 ---
 
 ![Dashboard View](/images/2025/Yamtrack-DB/IMG_1219.jpeg)

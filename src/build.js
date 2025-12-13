@@ -73,6 +73,10 @@ function groupByYear(posts) {
 
 // Layout wrapper
 function layout(title, content, currentPage = 'home', includeHeader = true) {
+  const navLink = currentPage === 'cv'
+    ? '<a href="mailto:jimj512@icloud.com">Email</a>'
+    : '<a href="/cv.html">CV & Bio</a>';
+
   const header = includeHeader ? `
   <header>
     <div class="header-content">
@@ -81,7 +85,7 @@ function layout(title, content, currentPage = 'home', includeHeader = true) {
         <p class="subtitle">Digital Product Design & Development</p>
       </div>
       <nav>
-        <a href="/cv.html" ${currentPage === 'cv' ? 'class="active"' : ''}>CV & Bio</a>
+        ${navLink}
       </nav>
     </div>
   </header>` : '';
@@ -92,7 +96,7 @@ function layout(title, content, currentPage = 'home', includeHeader = true) {
     <div class="footer-content">
       <p>&copy; ${new Date().getFullYear()} Jim Jordan</p>
       <p class="footer-location">Made in Austin, <img width="18px" src="/images/texas.svg" alt="Texas" class="texas-icon" /></p>
-      <p><a href="mailto:hello@jimjordan.com">Email Me</a></p>
+      <p><a href="mailto:jimj512@icloud.com">Email Me</a></p>
     </div>
   </footer>`;
 
@@ -229,7 +233,7 @@ function buildCategoryPages(posts) {
 
     const content = `
       <div class="category-archive">
-        <h2 class="category-title">Category: ${category}</h2>
+        <h2 class="category-title">${category}</h2>
         ${gridHTML}
       </div>
     `;
@@ -241,32 +245,26 @@ function buildCategoryPages(posts) {
 
 // Generate CV page
 function buildCVPage() {
+  const cvPath = './cv.md';
+
+  if (!fs.existsSync(cvPath)) {
+    console.log('⊘ cv.md not found, skipping CV page');
+    return;
+  }
+
+  const cvContent = fs.readFileSync(cvPath, 'utf8');
+  const { data, content: markdown } = matter(cvContent);
+  const html = marked(markdown);
+
   const content = `
     <article class="cv-page">
-      <h1>CV & Bio</h1>
-      <section>
-        <h2>About</h2>
-        <p>Digital product designer and developer with a focus on creating thoughtful, user-centered experiences.</p>
-      </section>
-
-      <section>
-        <h2>Experience</h2>
-        <div class="experience-item">
-          <h3>Senior Product Designer</h3>
-          <p class="date">2020 — Present</p>
-          <p>Leading design and development for digital products.</p>
-        </div>
-      </section>
-
-      <section>
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:hello@example.com">hello@example.com</a></p>
-      </section>
+      ${html}
     </article>
   `;
 
-  const html = layout('CV & Bio — Jim Jordan', content, 'cv');
-  writeFileWithPermissions(path.join(publicDir, 'cv.html'), html);
+  const pageTitle = data.title ? `${data.title} — Jim Jordan` : 'CV & Bio — Jim Jordan';
+  const fullHtml = layout(pageTitle, content, 'cv');
+  writeFileWithPermissions(path.join(publicDir, 'cv.html'), fullHtml);
 }
 
 // Copy styles

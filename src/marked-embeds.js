@@ -4,11 +4,11 @@ export const embedExtension = {
   name: 'embed',
   level: 'inline',
   start(src) {
-    return src.match(/\[(?:youtube|figma|video):/)?.index;
+    return src.match(/\[(?:youtube|vimeo|figma|video):/)?.index;
   },
   tokenizer(src) {
-    // Match patterns like [youtube:VIDEO_ID], [figma:FILE_ID], or [video:/path/to/video.mp4]
-    const rule = /^\[(youtube|figma|video):([^\]]+)\]/;
+    // Match patterns like [youtube:VIDEO_ID], [vimeo:VIDEO_ID], [figma:FILE_ID], or [video:/path/to/video.mp4]
+    const rule = /^\[(youtube|vimeo|figma|video):([^\]]+)\]/;
     const match = rule.exec(src);
 
     if (match) {
@@ -23,6 +23,8 @@ export const embedExtension = {
   renderer(token) {
     if (token.service === 'youtube') {
       return renderYouTube(token.id);
+    } else if (token.service === 'vimeo') {
+      return renderVimeo(token.id);
     } else if (token.service === 'figma') {
       return renderFigma(token.id);
     } else if (token.service === 'video') {
@@ -75,6 +77,31 @@ function renderYouTube(videoId) {
         src="https://www.youtube.com/embed/${id}"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+    </div>
+  `;
+}
+
+function renderVimeo(videoId) {
+  // Extract video ID from various Vimeo URL formats or use direct ID
+  let id = videoId;
+
+  // Handle full URLs like https://vimeo.com/127089285
+  if (videoId.includes('vimeo.com')) {
+    const urlMatch = videoId.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    if (urlMatch) {
+      id = urlMatch[1];
+    }
+  }
+
+  return `
+    <div class="embed-container embed-vimeo">
+      <iframe
+        src="https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
         allowfullscreen
         loading="lazy"
       ></iframe>

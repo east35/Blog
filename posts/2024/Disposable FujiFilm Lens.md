@@ -1,7 +1,7 @@
 ---
 title: Disposable FujiFilm Lens
-date: 2025-07-21
-description: Defying backlog paralysis
+date: 2024-07-21
+description: Emulating 90's vibes
 category: Hardware Projects
 ---
 # The $5 Disposable Camera Lens: A Digital Shortcut

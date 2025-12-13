@@ -64,7 +64,7 @@ body.page-leaving {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -193,14 +193,15 @@ nav a:hover {
 }
 
 /* Posts archive below each post */
-.posts-archive {
+/* .posts-archive {
   margin-top: 120px;
   padding-top: 60px;
   border-top: 1px solid var(--border);
-}
+} */
 
 .archive-header {
   margin-bottom: 60px;
+  padding: 40px 0 0 0;
 }
 
 .post-detail h1 {
@@ -340,8 +341,7 @@ nav a:hover {
 /* Embedded content (YouTube, Figma, etc.) */
 .embed-container {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
+  height: auto;
   overflow: hidden;
   max-width: 100%;
   margin: 30px 0;
@@ -369,15 +369,17 @@ nav a:hover {
 
 /* Local video embeds */
 .embed-video {
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  position: relative;
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .embed-video video {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-width: 100%;
   border-radius: 8px;
   background: #000000;
 }
@@ -401,7 +403,7 @@ nav a:hover {
 .media-grid-item video {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   border-radius: 8px;
 }
@@ -545,6 +547,14 @@ nav a:hover {
   line-height: 1.6;
 }
 
+.cv-page img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
 .cv-page .date {
   font-size: 14px;
   color: var(--text);
@@ -570,6 +580,35 @@ nav a:hover {
 
 .experience-item {
   margin-bottom: 32px;
+}
+
+.cv-page table {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+}
+
+.cv-page table th,
+.cv-page table td {
+  padding: 8px 20px 8px 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.cv-page table th {
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border);
+}
+
+.cv-page table td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .cv-page table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }
 
 /* Clouds Section */
