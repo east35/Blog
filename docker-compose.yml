@@ -4,6 +4,7 @@ services:
   blog:
     image: nginx:alpine
     container_name: personal-blog
+    user: "0:0"  # Run as root to read files with any permissions
     ports:
       - "8010:80"  # Maps NAS port 8010 to nginx port 80 inside container
     volumes:

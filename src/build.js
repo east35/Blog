@@ -12,10 +12,15 @@ const categoryPublicDir = './public/category';
 // Configure marked with embed and media grid extensions
 marked.use({ extensions: [embedExtension, mediaGridExtension] });
 
+// Helper to write files with proper permissions
+function writeFileWithPermissions(filePath, content) {
+  fs.writeFileSync(filePath, content, { mode: 0o644 });
+}
+
 // Ensure public directories exist
-if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir);
-if (!fs.existsSync(postsPublicDir)) fs.mkdirSync(postsPublicDir, { recursive: true });
-if (!fs.existsSync(categoryPublicDir)) fs.mkdirSync(categoryPublicDir, { recursive: true });
+if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { mode: 0o755 });
+if (!fs.existsSync(postsPublicDir)) fs.mkdirSync(postsPublicDir, { recursive: true, mode: 0o755 });
+if (!fs.existsSync(categoryPublicDir)) fs.mkdirSync(categoryPublicDir, { recursive: true, mode: 0o755 });
 
 // Read and parse all markdown posts from year subdirectories
 function getAllPosts() {
@@ -113,7 +118,7 @@ function layout(title, content, currentPage = 'home', includeHeader = true) {
 function buildHomepage(posts) {
   const gridHTML = generatePostsGrid(posts);
   const html = layout('Jim Jordan', gridHTML);
-  fs.writeFileSync(path.join(publicDir, 'index.html'), html);
+  writeFileWithPermissions(path.join(publicDir, 'index.html'), html);
 }
 
 // Generate the main posts grid (for reuse)
@@ -180,7 +185,7 @@ function buildPostPages(posts) {
     `;
 
     const html = layout(post.title, content, 'home', false);
-    fs.writeFileSync(path.join(postsPublicDir, `${post.slug}.html`), html);
+    writeFileWithPermissions(path.join(postsPublicDir, `${post.slug}.html`), html);
   });
 }
 
@@ -226,7 +231,7 @@ function buildCategoryPages(posts) {
     `;
 
     const html = layout(`${category} — Jim Jordan`, content);
-    fs.writeFileSync(path.join(categoryPublicDir, `${categorySlug}.html`), html);
+    writeFileWithPermissions(path.join(categoryPublicDir, `${categorySlug}.html`), html);
   });
 }
 
@@ -257,17 +262,21 @@ function buildCVPage() {
   `;
 
   const html = layout('CV & Bio — Jim Jordan', content, 'cv');
-  fs.writeFileSync(path.join(publicDir, 'cv.html'), html);
+  writeFileWithPermissions(path.join(publicDir, 'cv.html'), html);
 }
 
 // Copy styles
 function copyStyles() {
-  fs.copyFileSync('./src/styles.css', path.join(publicDir, 'styles.css'));
+  const destPath = path.join(publicDir, 'styles.css');
+  fs.copyFileSync('./src/styles.css', destPath);
+  fs.chmodSync(destPath, 0o644);
 }
 
 // Copy scripts
 function copyScripts() {
-  fs.copyFileSync('./src/scripts.js', path.join(publicDir, 'scripts.js'));
+  const destPath = path.join(publicDir, 'scripts.js');
+  fs.copyFileSync('./src/scripts.js', destPath);
+  fs.chmodSync(destPath, 0o644);
 }
 
 // Copy images
@@ -293,6 +302,7 @@ function copyImages() {
           copyRecursive(srcPath, destPath);
         } else {
           fs.copyFileSync(srcPath, destPath);
+          fs.chmodSync(destPath, 0o644);
         }
       }
     }
