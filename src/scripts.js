@@ -119,3 +119,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// Simple, privacy-respecting analytics
+function trackPageView() {
+  // Only track in production (not on localhost)
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    return;
+  }
+
+  const data = {
+    page: window.location.pathname,
+    referrer: document.referrer || 'direct',
+    timestamp: new Date().toISOString(),
+    viewport: `${window.innerWidth}x${window.innerHeight}`
+  };
+
+  // Send to analytics endpoint
+  // For Netlify: uses /.netlify/functions/analytics
+  // For Vercel: uses /api/analytics
+  // Change this based on your hosting platform
+  const endpoint = '/.netlify/functions/analytics';
+
+  fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+    keepalive: true
+  }).catch(() => {
+    // Silently fail - analytics shouldn't break UX
+  });
+}
+
+// Track page view on load
+document.addEventListener('DOMContentLoaded', trackPageView);

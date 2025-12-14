@@ -6,7 +6,8 @@
     "build": "node src/build.js",
     "watch": "node src/watch.js",
     "dev": "node src/build.js && npx serve public",
-    "optimize-images": "node src/optimize-images.js"
+    "optimize-images": "node src/optimize-images.js",
+    "analytics": "node src/view-analytics.js"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
