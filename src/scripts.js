@@ -135,9 +135,9 @@ function trackPageView() {
   };
 
   // Send to analytics endpoint
-  // For Netlify: uses /.netlify/functions/analytics
-  // For Vercel: uses /api/analytics
-  // Change this based on your hosting platform
+  // For Netlify with Blobs: use /.netlify/functions/analytics-blobs
+  // For Netlify simple logs: use /.netlify/functions/analytics
+  // For Vercel: use /api/analytics
   const endpoint = '/.netlify/functions/analytics';
 
   fetch(endpoint, {
