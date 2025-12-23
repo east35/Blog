@@ -2,8 +2,9 @@
 title: Designing EA Sandbox
 date: 2016-05-09
 description: A Feedback Platform for Mobile Game Testing
-category: Design
+category: Case Study
 ---
+
 ## The Challenge
 
 In 2016, I worked with EA Games on a unique problem: how do you efficiently gather meaningful feedback from playtesters during the critical pre-launch phase of mobile games? Traditional methods—surveys sent via email, bug reports filed in separate tools—created friction and resulted in lower response rates and less contextual feedback.
