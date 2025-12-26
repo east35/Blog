@@ -5,13 +5,11 @@ title: CV & Bio
 ![me](/images/bio/me.png)
 
 ## About
+I'm Jim Jordan, a digital product designer and hardware tinkerer based in Austin, Texas. Over the past decade, I've led design teams and shipped products used by millions.
 
-I'm Jim Jordan, a Principal Product Designer and hardware hacker based in Austin, Texas. I've spent the last decade leading design teams and shipping products that millions of people use every day.
+Currently, I'm Principal UX/UI Design Researcher for athenaPatient at athenahealth, leading product design across our patient-facing web and native platforms. Since launching in March 2023, athenaPatient has grown to over 1 million monthly active users—transforming athenahealth from a clinician-only platform into a patient-first experience.
 
-Currently, I'm the Principal for the athenaPatient zone at athenahealth, designing all patient-facing platforms including web and native experiences. Since launching athenaPatient in March 2023, we've grown to over 1 million monthly active users—fundamentally shifting athenahealth from a clinician-only platform to a patient-first experience.
-
-Before that, I helped Credit Karma grow their design team from 6 to 30+ designers prior to Intuit acquisition, launched Facebook's F8 developer conference, lead the first American UX design team at Volvo Cars, and explored how AI will reshape Dell's product ecosystem over the next decade.
-When I'm not designing, I'm probably building small form factor gaming PCs, falling off rock walls, or tinkering with home automation projects that inevitably break in interesting ways.
+Previously, I designed Credit Karma's core marketplace experiences, envisioned PayPal's first mobile NFC payments platform, helped establish Volvo Cars' first American UX team, and explored how AI would reshape Dell's product ecosystem. When I'm not designing, I'm building small form factor PCs, reading science fiction, or automating my home.
 
 [Email](mailto:jimj512@icloud.com)
 

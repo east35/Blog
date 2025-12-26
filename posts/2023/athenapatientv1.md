@@ -3,6 +3,8 @@ title: Putting Patients First—Designing athenaPatient
 date: 2023-01-15
 description: Shipping healthcare product in a fragmented enviornment. 
 category: Case Study
+company: athenahealth
+company_url: https://athenahealth.com
 ---
 
 Healthcare is fragmented. Anyone who's juggled multiple patient portals—each with different logins, interfaces, and URLs—knows this intimately. When I joined the athenaPatient project, we faced what seemed like a straightforward challenge: consolidate a patient's healthcare data from any athenahealth provider into a single, unified experience.
