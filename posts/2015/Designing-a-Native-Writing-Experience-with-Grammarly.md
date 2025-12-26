@@ -3,7 +3,10 @@ title: Native Writing Experience with Grammarly
 date: 2015-11-25
 description: Designing for Flow Across macOS, iOS, and iPadOS
 category: Case Study
+company: Funsize
+company_url: https://funsize.co
 ---
+
 ![](/images/2015/grammarly/mockup-denali-tablet.png)
 During my time working with **Grammarly**, I focused on designing a **native, cross-platform writing experience** built around Grammarly’s writing-checking system at its core. The goal was simple but ambitious: make Grammarly feel *invisible*—present everywhere writers need help, without interrupting flow.
 

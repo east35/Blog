@@ -3,6 +3,8 @@ title: Volvo Find & Try
 date: 2019-09-11
 description: Premier test driving experience
 category: Case Study
+company: Funsize
+company_url: https://funsize.co
 ---
 
 ## **Find & Try**

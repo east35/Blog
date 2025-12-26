@@ -163,6 +163,12 @@ function buildPostPages(posts) {
 
   posts.forEach(post => {
     const categorySlug = post.category.toLowerCase().replace(/\s+/g, '-');
+
+    // Add company disclosure at the top if company field exists and is not empty
+    const companyDisclosure = (post.company && post.company.trim())
+      ? `<p class="company-disclosure"><strong>Note:</strong> I designed this product as part of my work at ${post.company_url ? `<a href="${post.company_url}" target="_blank" rel="noopener noreferrer">${post.company}</a>` : post.company}.</p>`
+      : '';
+
     const content = `
       <button class="scroll-nav-btn" onclick="scrollToArchive()" aria-label="Navigate to posts">
         <span>J</span>
@@ -173,6 +179,7 @@ function buildPostPages(posts) {
           <time datetime="${post.date}">${new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} · <a href="/category/${categorySlug}.html" class="post-category">${post.category}</a></time>
         </div>
         <div class="post-content">
+          ${companyDisclosure}
           ${post.html}
         </div>
       </article>

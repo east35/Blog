@@ -3,6 +3,8 @@ title: F8 Conference
 date: 2017-02-12
 description: Designing Facebook's developer conference website
 category: Case Study
+company: Funsize
+company_url: https://funsize.co
 ---
 
 ### F8 Conference

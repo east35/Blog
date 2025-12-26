@@ -3,6 +3,8 @@ title: Dell Neon
 date: 2016-05-09
 description: Imagining a Native Storefront for Windows PCs
 category: Case Study
+company: Funsize
+company_url: https://funsize.co
 ---
 
 In 2016, Windows PCs didn’t have a meaningful, unified **native storefront**.

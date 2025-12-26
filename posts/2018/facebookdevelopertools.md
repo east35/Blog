@@ -3,6 +3,8 @@ title: Facebook Developer Tools
 date: 2018-07-13
 description: Designing Facebook's developer platform
 category: Case Study
+company: Funsize
+company_url: https://funsize.co
 ---
 Partnering with the developer team at Facebook my team and I redesigned a swatch of developer facing tools. 
 

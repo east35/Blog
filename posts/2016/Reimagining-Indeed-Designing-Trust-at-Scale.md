@@ -1,8 +1,10 @@
 ---
 title: Designing Trust at Scale
 date: 2016-11-01
-description: How Exploratory Design Helped Shift a Platform’s Creative Direction
+description: How Exploratory Design Helped Shift a Platform's Creative Direction
 category: Case Study
+company: Funsize
+company_url: https://funsize.co
 ---
 
 In 2016, **Indeed faced a perception problem**.

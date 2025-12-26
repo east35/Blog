@@ -3,6 +3,8 @@ title: Grammarly for the Open Web
 date: 2015-11-26
 description: Improving writing skills at every opportunity
 category: Case Study
+company: Funsize
+company_url: https://funsize.co
 ---
 ![](</images/2015/grammarly/Extension_Expanded settings.png>)
 

@@ -3,6 +3,8 @@ title: Care by Volvo
 date: 2019-09-10
 description: Subscription car buying
 category: Case Study
+company: Funsize
+company_url: https://funsize.co
 ---
 
 ## Care by Volvo

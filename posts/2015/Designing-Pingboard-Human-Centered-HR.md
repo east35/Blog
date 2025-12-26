@@ -3,6 +3,8 @@ title: Pingboard
 date: 2015-04-03
 description: Designing Workplace Software in a Pre-Modern HR Era
 category: Case Study
+company: Funsize
+company_url: https://funsize.co
 ---
 
 In 2015, most HR software looked and behaved the same.

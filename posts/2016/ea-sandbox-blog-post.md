@@ -3,6 +3,8 @@ title: Designing EA Sandbox
 date: 2016-05-09
 description: A Feedback Platform for Mobile Game Testing
 category: Case Study
+company: Funsize
+company_url: https://funsize.co
 ---
 
 ## The Challenge

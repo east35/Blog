@@ -3,6 +3,8 @@ title: Banter
 date: 2018-08-04
 description: Social Podcasting
 category: Case Study
+company: Funsize
+company_url: https://funsize.co
 ---
 Banter was a social podcasting app created in parity with Steve Krenzel and James Reggio. Avid podcasters both, they felt the medium was lacking any social construct between topics, publishers, and listeners. They aimed to create a platform where users could share not just full episodes or series but also snippets of conversation that could lead to new podcast discovery. 
 
